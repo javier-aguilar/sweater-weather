@@ -71,4 +71,13 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  VCR.configure do |config|
+    config.ignore_hosts '127.0.0.1', 'localhost', 'chromedriver.storage.googleapis.com'
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    config.hook_into :webmock
+    config.filter_sensitive_data('<GOOGLE_API_KEY>') { ENV['GOOGLE_API_KEY'] }
+    config.filter_sensitive_data('<OWEATHER_API_KEY>') { ENV['OWEATHER_API_KEY'] }
+    config.configure_rspec_metadata!
+  end
 end
