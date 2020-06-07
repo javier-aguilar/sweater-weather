@@ -78,6 +78,15 @@ RSpec.configure do |config|
     config.hook_into :webmock
     config.filter_sensitive_data('<GOOGLE_API_KEY>') { ENV['GOOGLE_API_KEY'] }
     config.filter_sensitive_data('<OWEATHER_API_KEY>') { ENV['OWEATHER_API_KEY'] }
+    config.filter_sensitive_data('<UNSPLASH_ACCESS_KEY>') { ENV['UNSPLASH_ACCESS_KEY'] }
+    config.filter_sensitive_data('<UNSPLASH_SECRET_KEY>') { ENV['UNSPLASH_SECRET_KEY'] }
     config.configure_rspec_metadata!
   end
+
+  Unsplash.configure do |config|
+    config.application_access_key = ENV['UNSPLASH_ACCESS_KEY']
+    config.application_secret = ENV['UNSPLASH_SECRET_KEY']
+    config.utm_source = 'sweater-weather'
+  end
+
 end
