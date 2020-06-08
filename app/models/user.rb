@@ -8,7 +8,7 @@ class User < ApplicationRecord
   after_create :set_api_key
 
   def set_api_key
-    self.api_key = generate_api_key
+    update_column(:api_key, generate_api_key)
   end
 
   private
