@@ -3,8 +3,7 @@ class RestaurantService
     params = { entity_type: 'zone',
                lat: location.lat,
                lon: location.lng,
-               cuisines: 55,
-               appid: ENV['ZOMATO_API_KEY'] }
+               cuisines: 55 }
     get_json('search', params)
   end
 
@@ -18,6 +17,7 @@ class RestaurantService
   def conn
     Faraday.new('https://developers.zomato.com/api/v2.1/') do |conn|
       conn.adapter Faraday.default_adapter
+      conn.headers["user-key"] = ENV['ZOMATO_API_KEY']
     end
   end
 end
