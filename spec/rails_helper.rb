@@ -80,6 +80,7 @@ RSpec.configure do |config|
     config.filter_sensitive_data('<OWEATHER_API_KEY>') { ENV['OWEATHER_API_KEY'] }
     config.filter_sensitive_data('<UNSPLASH_ACCESS_KEY>') { ENV['UNSPLASH_ACCESS_KEY'] }
     config.filter_sensitive_data('<UNSPLASH_SECRET_KEY>') { ENV['UNSPLASH_SECRET_KEY'] }
+    config.filter_sensitive_data('<ZOMATO_API_KEY>') { ENV['ZOMATO_API_KEY'] }
     config.configure_rspec_metadata!
   end
 
