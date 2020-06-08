@@ -1,6 +1,8 @@
 class Api::V1::FoodieController < ApplicationController
   def index
-    destination = Travel.get_info(foodie_params[:start], foodie_params[:end])
+    destination = Travel.get_info(foodie_params[:start],
+                                  foodie_params[:end],
+                                  foodie_params[:search])
     render json:FoodieSerializer.new(destination)
   end
 
