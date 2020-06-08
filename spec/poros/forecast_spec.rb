@@ -3,11 +3,14 @@ require 'rails_helper'
 RSpec.describe Forecast, type: :model do
   describe 'initialize' do
     it 'has attributes' do
-      forecast = Forecast.new('Austin, TX, USA', 'data')
+      location = { current: 'current data', hourly: 'hourly data', daily: 'daily data'}
+      forecast = Forecast.new('Austin, TX, USA', location)
 
       expect(forecast.class).to eq Forecast
       expect(forecast.location).to eq 'Austin, TX, USA'
-      expect(forecast.info).to eq 'data'
+      expect(forecast.current).to eq 'current data'
+      expect(forecast.hourly).to eq 'hourly data'
+      expect(forecast.daily).to eq 'daily data'
     end
   end
   describe 'class methods' do
