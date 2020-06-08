@@ -11,6 +11,8 @@ class Travel
 
   def self.info(startpoint, endpoint, cuisine)
     travel_info = GoogleService.new.travel_time(startpoint, endpoint)
+    return if travel_info.has_key? :error_message
+
     info = { end_location: endpoint,
              travel_time: travel_info[:routes][0][:legs][0][:duration][:text],
              cuisine: cuisine }

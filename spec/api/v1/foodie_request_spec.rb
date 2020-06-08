@@ -33,5 +33,14 @@ describe "API V1" do
       expect(data[:end_location]).to eq "austin,tx"
       expect(data[:travel_time]).to eq "14 hours 9 mins"
     end
+    it "returns error", :vcr do
+      get '/api/v1/foodie?start=denver,co&search=mexican'
+
+      expect(response).to_not be_successful
+      json = JSON.parse(response.body, symbolize_names: true)
+      data = json[:errors].first
+      expect(data).to have_key :id
+      expect(data).to have_key :title
+    end
   end
 end
