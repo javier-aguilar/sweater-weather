@@ -2,7 +2,7 @@ class Travel
   attr_reader :id, :end_location, :travel_time
 
   def initialize(info)
-    @id = ""
+    @id = ''
     @end_location = info[:end_location]
     @travel_time = info[:travel_time]
     @cuisine = info[:cuisine]
@@ -33,7 +33,7 @@ class Travel
   private
 
   def cuisine_id
-    cuisine_ids = RestaurantService.new.get_cuisines
+    cuisine_ids = RestaurantService.new.cuisines
     id = cuisine_ids[:cuisines].select do |key|
       key[:cuisine][:cuisine_name] == @cuisine.capitalize
     end

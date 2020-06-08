@@ -3,7 +3,7 @@ class Api::V1::FoodieController < ApplicationController
     destination = Travel.get_info(foodie_params[:start],
                                   foodie_params[:end],
                                   foodie_params[:search])
-    render json:FoodieSerializer.new(destination)
+    render json: FoodieSerializer.new(destination)
   end
 
   private
