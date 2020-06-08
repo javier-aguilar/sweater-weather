@@ -1,10 +1,15 @@
 class RestaurantService
-  def get_info(location)
+  def get_info(location, cuisine_id)
     params = { entity_type: 'zone',
                lat: location.lat,
                lon: location.lng,
-               cuisines: 55 }
+               cuisines: cuisine_id }
     get_json('search', params)
+  end
+
+  def get_cuisines
+    params = { city_id: 1 }
+    get_json('cuisines', params)
   end
 
   private
