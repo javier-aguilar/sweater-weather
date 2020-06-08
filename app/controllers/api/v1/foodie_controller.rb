@@ -1,9 +1,7 @@
 class Api::V1::FoodieController < ApplicationController
   def index
     destination = Travel.get_info(foodie_params[:start], foodie_params[:end])
-    binding.pry
-    # use end param to find a restaurant
-    # return json
+    render json:FoodieSerializer.new(destination)
   end
 
   private
