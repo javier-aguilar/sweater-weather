@@ -81,6 +81,7 @@ RSpec.configure do |config|
     config.filter_sensitive_data('<UNSPLASH_ACCESS_KEY>') { ENV['UNSPLASH_ACCESS_KEY'] }
     config.filter_sensitive_data('<UNSPLASH_SECRET_KEY>') { ENV['UNSPLASH_SECRET_KEY'] }
     config.configure_rspec_metadata!
+    config.allow_http_connections_when_no_cassette = true
   end
 
   Unsplash.configure do |config|
