@@ -58,4 +58,13 @@ describe "API V1" do
     expect(data).to have_key :hourly
     expect(data).to have_key :daily
   end
+  it "returns error status", :vcr do
+    get '/api/v1/forecast?location=1111111'
+
+    expect(response).to_not be_successful
+    json = JSON.parse(response.body, symbolize_names: true)
+    data = json[:errors].first
+    expect(data).to have_key :id
+    expect(data).to have_key :title
+  end
 end
