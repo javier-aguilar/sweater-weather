@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "API V1" do
   describe "GET /api/v1/foodie" do
-    it "returns food and forecast information for a city" do
+    it "returns food and forecast information for a city", :vcr do
       get '/api/v1/foodie?start=denver,co&end=pueblo,co&search=italian'
 
       expect(response).to be_successful
