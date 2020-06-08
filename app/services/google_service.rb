@@ -5,6 +5,13 @@ class GoogleService
     get_json('geocode/json', params)
   end
 
+  def travel_time(startpoint, endpoint)
+    params = { origin: startpoint,
+               destination: endpoint,
+               key: ENV['GOOGLE_API_KEY'] }
+    get_json('directions/json', params)
+  end
+
   private
 
   def get_json(url, params = nil)
