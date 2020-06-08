@@ -3,6 +3,7 @@ class ForecastService
     params = { lat: location.lat,
                lon: location.lng,
                # units: 'imperial',
+               exclude: 'minutely',
                appid: ENV['OWEATHER_API_KEY'] }
     get_json('onecall', params)
   end

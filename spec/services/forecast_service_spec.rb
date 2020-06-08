@@ -10,7 +10,7 @@ describe ForecastService do
         expect(forecast).to be_a Hash
 
         expect(forecast).to have_key :current
-        expect(forecast).to have_key :minutely
+        expect(forecast).to_not have_key :minutely
         expect(forecast).to have_key :hourly
         expect(forecast).to have_key :daily
       end
