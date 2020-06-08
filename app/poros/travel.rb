@@ -9,7 +9,7 @@ class Travel
     @location = Location.info(@end_location)
   end
 
-  def self.get_info(startpoint, endpoint, cuisine)
+  def self.info(startpoint, endpoint, cuisine)
     travel_info = GoogleService.new.travel_time(startpoint, endpoint)
     info = { end_location: endpoint,
              travel_time: travel_info[:routes][0][:legs][0][:duration][:text],
