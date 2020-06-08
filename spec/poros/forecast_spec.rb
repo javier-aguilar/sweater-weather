@@ -8,9 +8,6 @@ RSpec.describe Forecast, type: :model do
 
       expect(forecast.class).to eq Forecast
       expect(forecast.location).to eq 'Austin, TX, USA'
-      expect(forecast.current).to eq 'current data'
-      expect(forecast.hourly).to eq 'hourly data'
-      expect(forecast.daily).to eq 'daily data'
     end
   end
   describe 'class methods' do
