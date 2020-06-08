@@ -1,5 +1,5 @@
 class Location
-  attr_reader :lat, :lng, :title
+  attr_reader :title, :lat, :lng
 
   def initialize(info)
     @title = info[:title]
