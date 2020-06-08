@@ -2,7 +2,7 @@ class Travel
   attr_reader :id, :end_location, :travel_time
 
   def initialize(info)
-    @id = 1
+    @id = ""
     @end_location = info[:end_location]
     @travel_time = info[:travel_time]
     @location = Location.info(@end_location)
@@ -17,8 +17,8 @@ class Travel
 
   def forecast
     response = ForecastService.new.forecast_info(@location)
-    { summary: response[:current][:temp].to_i,
-      temperature: response[:current][:weather][0][:main] }
+    { summary: response[:current][:weather][0][:main],
+      temperature: response[:current][:temp].to_i }
   end
 
   def restaurant
