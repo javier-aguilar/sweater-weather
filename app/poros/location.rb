@@ -9,6 +9,8 @@ class Location
 
   def self.info(location)
     response = GoogleService.new.geocode_info(location)
+    return if response[:results].empty?
+
     location_info = response[:results].first
     info = { title: location_info[:formatted_address],
              lat: location_info[:geometry][:location][:lat],
