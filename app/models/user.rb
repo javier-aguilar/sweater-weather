@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   after_create :set_api_key
 
+  private
+
   def set_api_key
     update(api_key: generate_api_key)
   end
-
-  private
 
   def generate_api_key
     SecureRandom.base58(24)
