@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
       render json: UserSerializer.new(user)
     else
       message = user.errors.full_messages.to_sentence
-      error(message)
+      error(:bad_request, 400, message)
     end
   end
 
@@ -13,11 +13,5 @@ class Api::V1::UsersController < ApplicationController
 
   def users_params
     params.permit(:email, :password, :password_confirmation)
-  end
-
-  def error(message)
-    render json: { status: :bad_request,
-                   code: 400,
-                   message: message }, status: :bad_request
   end
 end

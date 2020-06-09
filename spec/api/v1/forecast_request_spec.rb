@@ -62,9 +62,14 @@ describe "API V1" do
     get '/api/v1/forecast?location=1111111'
 
     expect(response).to_not be_successful
+    expect(response).to have_http_status(400)
+
     json = JSON.parse(response.body, symbolize_names: true)
-    data = json[:errors].first
-    expect(data).to have_key :id
-    expect(data).to have_key :title
+
+    expect(json).to have_key :status
+    expect(json).to have_key :code
+    expect(json).to have_key :message
+
+    expect(json[:message]).to eq 'Invalid location'
   end
 end
