@@ -4,8 +4,7 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(sessions_params[:password])
       render json: UserSerializer.new(user)
     else
-      message = 'Invalid Email or Password'
-      error(message)
+      error(:unauthorized, 401, 'Invalid Email or Password')
     end
   end
 
@@ -13,11 +12,5 @@ class Api::V1::SessionsController < ApplicationController
 
   def sessions_params
     params.permit(:email, :password)
-  end
-
-  def error(message)
-    render json: { status: :unauthorized,
-                   code: 401,
-                   message: message }, status: :unauthorized
   end
 end

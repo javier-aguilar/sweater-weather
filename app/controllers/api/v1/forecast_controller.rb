@@ -5,17 +5,11 @@ class Api::V1::ForecastController < ApplicationController
       forecast = Forecast.get_info(coordinates)
       render json: ForecastSerializer.new(forecast)
     else
-      error
+      error(:bad_request, 400, 'Invalid location')
     end
   end
 
   def forecast_params
     params.permit(:location)
-  end
-
-  def error
-    data = { errors: [] }
-    data[:errors] << { id: 'location', title: 'invalid location' }
-    render json: data, status: :unprocessable_entity
   end
 end
