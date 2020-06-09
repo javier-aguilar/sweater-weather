@@ -4,6 +4,8 @@ class Api::V1::BackgroundsController < ApplicationController
     render json: BackgroundSerializer.new(background)
   end
 
+  private
+
   def backgrounds_params
     params.permit(:location)
   end

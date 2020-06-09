@@ -9,6 +9,8 @@ class Api::V1::ForecastController < ApplicationController
     end
   end
 
+  private
+
   def forecast_params
     params.permit(:location)
   end
