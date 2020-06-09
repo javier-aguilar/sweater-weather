@@ -31,6 +31,7 @@ $ rails s
 ## API Documentation
 
 ### Get Weather Forecast For A City
+Returns weather forecast for a city
 ```shell
 GET /api/v1/forecast
 ```
@@ -38,13 +39,14 @@ Example:
 ```shell
 GET /api/v1/forecast?location=houston,tx
 ```
-#### Params
+#### Required Params
 |         |            |
 | ------------- |:-------------:|
 | **location**     | city |
 
 
 ### Get Background Image For A City
+Returns an image url for a city
 ```shell
 GET /api/v1/backgrounds
 ```
@@ -52,13 +54,14 @@ Example:
 ```shell
 GET /api/v1/backgrounds?location=denver,co
 ```
-#### Params
+#### Required Params
 |         |            |
 | ------------- |:-------------:|
 | **location**     | city |
 
 
-### Create User Account
+### User Account Creation
+Creates a user account
 ```shell
 POST /api/v1/users
 ```
@@ -66,14 +69,15 @@ Example:
 ```
 POST /api/v1/users?email=user@example.com&password=password123&password_confirmation=password123
 ```
-#### Params
+#### Required Params
 |         |            |
 | ------------- |:-------------:|
 | **email**     | user@example.com |
 | **password**      | password        |
 | **password_confirmation** | password        |
 
-### Create User Session
+### User Login
+Returns user API key 
 ```shell
 POST /api/v1/sessions
 ```
@@ -81,13 +85,13 @@ Example:
 ```
 POST /api/v1/sessions?email=user@example.com&password=password123
 ```
-#### Params
+#### Required Params
 |         |            |
 | ------------- |:-------------:|
 | **email**     | user@example.com |
 | **password**      | password        |
 
-### Create Road Trip For A User
+### Get Road Trip Information
 ```shell
 POST /api/v1/road_trip
 ```
