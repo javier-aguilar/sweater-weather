@@ -24,8 +24,24 @@ describe "API V1" do
 
       expect(data[:origin]).to eq 'Denver,CO'
       expect(data[:destination]).to eq 'Pueblo,CO'
-      expect(data[:arrival_forecast][:summary]).to eq 'Clear'
-      expect(data[:arrival_forecast][:temperature]).to eq 88
+    end
+    it "returns travel time and arrival forecast for denver to aurora", :vcr do
+      params = { origin: "Denver,CO",
+                 destination: "Aurora,CO",
+                 api_key: @api_key }
+      post '/api/v1/road_trip', params: params
+
+      expect(response).to be_successful
+      json = JSON.parse(response.body, symbolize_names: true)
+      data = json[:data][:attributes]
+
+      expect(data).to have_key :origin
+      expect(data).to have_key :destination
+      expect(data).to have_key :travel_time
+      expect(data).to have_key :arrival_forecast
+
+      expect(data[:origin]).to eq 'Denver,CO'
+      expect(data[:destination]).to eq 'Aurora,CO'
     end
     it "returns unsuccessful due to invalid api_key" do
       params = { origin: "Denver,CO",

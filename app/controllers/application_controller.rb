@@ -4,8 +4,6 @@ class ApplicationController < ActionController::API
     return error(:unauthorized, 401, 'Invalid api key') if user.nil?
   end
 
-  private
-
   def error(status, code, message)
     render json: { status: status,
                    code: code,

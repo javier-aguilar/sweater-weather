@@ -2,7 +2,7 @@ class Trip
   attr_reader :id, :origin, :destination, :travel_time
 
   def initialize(info)
-    @id = ""
+    @id = ''
     @origin = info[:origin]
     @destination = info[:destination]
     @travel_time = info[:travel_time]
@@ -21,8 +21,23 @@ class Trip
   def arrival_forecast
     destination_coordinates = Location.info(@destination)
     response = ForecastService.new.forecast_info(destination_coordinates)
-    { summary: response[:current][:weather][0][:main],
-      temperature: response[:current][:temp].to_i }
+    dt = arrival_time.beginning_of_hour.to_i
+    arrival = response[:hourly].select { |key| key[:dt] == dt }.first
+    { summary: arrival[:weather][0][:main],
+      temperature: arrival[:temp].to_i }
   end
 
+  private
+
+  def arrival_time
+    time = @travel_time.scan(/\d+/).map(&:to_i)
+    arrival = Time.zone.now
+    if @travel_time.include? 'hour'
+      arrival += time[0].hour if time[0]
+      arrival += time[1].minutes if time[1]
+    else
+      arrival += time[0].minutes
+    end
+    arrival
+  end
 end

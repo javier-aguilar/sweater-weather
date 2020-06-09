@@ -1,10 +1,10 @@
 class Forecast
-  attr_reader :location, :info, :id
+  attr_reader :id, :location, :info
 
   def initialize(location, info)
+    @id = 1
     @location = location
     @info = info
-    @id = 1
   end
 
   def self.get_info(location)
@@ -59,22 +59,6 @@ class Forecast
   end
 
   private
-
-  # def daily_high
-  #   today = Time.now.strftime('%A').to_sym
-  # end
-
-  # def uv_index(value)
-  #   if value <= 2
-  #     "#{value} (low)"
-  #   elsif value > 2 && value <= 5
-  #     "#{value} (moderate)"
-  #   elsif value > 5 && value <= 7
-  #     "#{value} (high)"
-  #   else
-  #     "#{value} (very high)"
-  #   end
-  # end
 
   def image_url(icon)
     "http://openweathermap.org/img/wn/#{icon}@2x.png"
