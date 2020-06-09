@@ -24,8 +24,6 @@ describe "API V1" do
 
       expect(data[:origin]).to eq 'Denver,CO'
       expect(data[:destination]).to eq 'Pueblo,CO'
-      expect(data[:arrival_forecast][:summary]).to eq 'Clouds'
-      expect(data[:arrival_forecast][:temperature]).to eq 69
     end
     it "returns travel time and arrival forecast for denver to aurora", :vcr do
       params = { origin: "Denver,CO",
@@ -44,8 +42,6 @@ describe "API V1" do
 
       expect(data[:origin]).to eq 'Denver,CO'
       expect(data[:destination]).to eq 'Aurora,CO'
-      expect(data[:arrival_forecast][:summary]).to eq 'Clouds'
-      expect(data[:arrival_forecast][:temperature]).to eq 50
     end
     it "returns unsuccessful due to invalid api_key" do
       params = { origin: "Denver,CO",
