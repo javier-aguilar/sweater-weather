@@ -9,6 +9,11 @@ The API can be reached here: https://sweater-weather-2001.herokuapp.com/
 - Ruby 2.5.3
 - Rails 5.1.7
 
+### Generate API Keys
+- [Google API Key](https://developers.google.com/maps/documentation/directions/get-api-key) (Enable Directions and Geocoding API)
+- [Unsplash API Key](https://unsplash.com/developers)
+- [OpenWeather API Key](https://openweathermap.org/api)
+
 ### Install
 ```shell
 $ git clone git@github.com:javier-aguilar/sweater-weather.git
