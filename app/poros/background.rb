@@ -7,8 +7,8 @@ class Background
   end
 
   def self.find(query)
-    search_results = Unsplash::Photo.search(query)
-    info = { url: search_results.first.urls.full }
+    search_results = UnsplashService.new.search(query)
+    info = { url: search_results[:results].first[:urls][:full] }
     Background.new(info)
   end
 end
