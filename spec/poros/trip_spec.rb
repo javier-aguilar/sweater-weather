@@ -18,6 +18,9 @@ RSpec.describe Trip, type: :model do
   end
   describe 'instance methods' do
     it '#arrival_forecast', :vcr do
+      new_time = Time.at(1591722000)
+      Timecop.freeze(new_time)
+
       info = { id: '',
                origin: 'Denver,CO',
                destination: 'Pueblo,CO',
