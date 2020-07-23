@@ -15,6 +15,7 @@ gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem "rack", ">= 2.2.3"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -45,6 +46,7 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'timecop'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'simplecov'
