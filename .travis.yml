@@ -6,8 +6,8 @@ addons:
   chrome: stable
 dist: xenial
 before_install:
-  - yes | gem update --system --force
-  - gem install bundler
+- yes | gem update --system --force
+- gem install bundler
 script:
 - yarn
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
@@ -15,6 +15,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: I/ArKKYIRxpLIi2UFj1gosvpRJvGuY3q4JDFXUzvkGTkFBFg3GXTVxLWR7SAu97hDzR0NsXFoGFIAbxoGjYaDx9QLN8eJdQEQ8WMGTMIm7iYA6OFredTXaQ/VVURBcARWvXtgoZxJNhUqHewQWwHzsgf6jiD86iZvq0eZiCwAXzwEK4yJDOlbL3aE5tKQvV2FDquiUVnVhWGD068rEOJVHEQovIHRSFK56m6Xz4SoY/+F+3joiSjbpkXhKhrD/2dsQOuTcazMpEmwwXQe0G/7z5pZAxp/JboBK5VrQm7+MYWx9X89oKrdSy70dzfYaoABC+Sml3W8pdqej5tsvZ+zQQW/n/2cDH0dMAsX9uzVwPmPGZoI2H3AgdtTNznLiSWAUV8M3uFXml7DslNbRx0ZhrDG0mfBOViHVfPIVyf91AbbX81NUiM4qI9qEboV+aYP7ZjG3xiDM58WPHFj4bGuZpZ0ZGjoAmVPMztX41WmQBF6GfmzeS+LNfGqeAY/Y22Ax5T9ppR6RZLFuTWvA1YUSurWSqWCYjH5DXOLPcABpZXMKG/pTFI42SU/xM+xxFV/Yl+XKLl+epWNdZH7+Q/SzZZ1V4oGTRHnaRjR6fdUVptVDi9WwbEVzSCI5nWjs8Nzcm86OMTE/R0pmbUZ2gkdBMrAx0OkuaG3+1V/l/m23Q=
+    secure: Z844dJQ1i7qE26J7T6yp9RRCe4NCsYDKJKG7dS/xbHM3EtFTxzq2drLoInRVVsyuTz/zBI44L3BABbBgq+ZRh7tBEGQLgh5qpgWI+WzlQEDOthrbgWpeVCIesLeee4e68kwuxZb553imQlZKloFabr+eXdyWW4mYlb/Dcaa7s98lgU07qHDSRgNF/WhJdlkLv0+PucQZkHNWAkHivRD+ptkoaxiSRmSuenbkllNUq3S1EahdK+xv2MRHhrSV+LtOlC1SN0eZ93dzjLt7KxwDp7GfCbkt0eXcBYwJ0BItbhhJwzEwvicvVmORf2g9DCWZE0ij4VDYbNaf+0syMo8n12LdYrs5Oex9NrrAKfqnTOS94JySh1K3zP1bfg6XkhzM7h+TwiU2+jELbASa9gYRaiXKsoWjo7DNIaT/hfFbve85efVH5/saoLEv0LosVUkMJrSwnLIy3o92sPssB2Igr5fmiCOQ+wX2b/ou7vkBqb8CW/JiiQTcIEHmHed5ha6AyrnqmJofbDNOEdxmYV2CyZSF3EsC0uWabdDK8s005CZn1WxUm8JGOfvgDYMT5YvHHBMkEfB9dC+Z/6tVGCWjxkxyJfwJ8F/9DLhkwX7pgoWodeNPgxYdR8kMcUwAjMJDO52GP/6AzpZn3MIsP3ZKBak3QHmaUlTWO5wQMBYxqx0=
   app: sweater-weather-2001
   run: rails db:migrate
