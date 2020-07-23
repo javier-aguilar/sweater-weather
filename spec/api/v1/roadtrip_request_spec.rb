@@ -8,6 +8,8 @@ describe "API V1" do
       @api_key = json[:data][:attributes][:api_key]
     end
     it "returns travel time and arrival forecast", :vcr do
+      new_time = Time.at(1591722000)
+      Timecop.freeze(new_time)
       params = { origin: "Denver,CO",
                  destination: "Pueblo,CO",
                  api_key: @api_key }
@@ -26,6 +28,8 @@ describe "API V1" do
       expect(data[:destination]).to eq 'Pueblo,CO'
     end
     it "returns travel time and arrival forecast for denver to aurora", :vcr do
+      new_time = Time.at(1591722000)
+      Timecop.freeze(new_time)
       params = { origin: "Denver,CO",
                  destination: "Aurora,CO",
                  api_key: @api_key }
