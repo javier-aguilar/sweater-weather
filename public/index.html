@@ -1,0 +1,130 @@
+<h1 id="sweater-weather">Sweater Weather</h1>
+<p>Sweater Weather is an API built on Rails that provides current weather as well as forecasted weather for a given destination. </p>
+
+<h2 id="api-documentation">API Documentation</h2>
+<h3 id="get-weather-forecast-for-a-city">Get Weather Forecast For A City</h3>
+<p>Returns weather forecast for a city</p>
+<pre><code class="lang-shell"><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/forecast
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-shell"><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/forecast?location<span class="hljs-symbol">=houston</span>,tx
+</code></pre>
+<h4 id="required-params">Required Params</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>location</strong></td>
+<td style="text-align:center">city</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-background-image-for-a-city">Get Background Image For A City</h3>
+<p>Returns an image url for a city</p>
+<pre><code class="lang-shell"><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/<span class="hljs-keyword">backgrounds</span>
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-shell"><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/<span class="hljs-keyword">backgrounds?location=denver,co</span>
+</code></pre>
+<h4 id="required-params">Required Params</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>location</strong></td>
+<td style="text-align:center">city</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-account-creation">User Account Creation</h3>
+<p>Creates a user account</p>
+<pre><code class="lang-shell"><span class="hljs-symbol">POST</span> /api/<span class="hljs-built_in">v1</span>/users
+</code></pre>
+<p>Example:</p>
+<pre><code>POST <span class="hljs-meta-keyword">/api/</span>v1/users?email=user@example.com<span class="hljs-variable">&amp;password</span>=password123<span class="hljs-variable">&amp;password_confirmation</span>=password123
+</code></pre><h4 id="required-params">Required Params</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>email</strong></td>
+<td style="text-align:center">user@example.com</td>
+</tr>
+<tr>
+<td><strong>password</strong></td>
+<td style="text-align:center">password</td>
+</tr>
+<tr>
+<td><strong>password_confirmation</strong></td>
+<td style="text-align:center">password</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-login">User Login</h3>
+<p>Returns user API key </p>
+<pre><code class="lang-shell"><span class="hljs-symbol">POST</span> /api/<span class="hljs-built_in">v1</span>/sessions
+</code></pre>
+<p>Example:</p>
+<pre><code>POST <span class="hljs-meta-keyword">/api/</span>v1/sessions?email=user@example.com<span class="hljs-variable">&amp;password</span>=password123
+</code></pre><h4 id="required-params">Required Params</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>email</strong></td>
+<td style="text-align:center">user@example.com</td>
+</tr>
+<tr>
+<td><strong>password</strong></td>
+<td style="text-align:center">password</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-road-trip-information">Get Road Trip Information</h3>
+<pre><code class="lang-shell"><span class="hljs-symbol">POST</span> /api/<span class="hljs-built_in">v1</span>/road_trip
+</code></pre>
+<p>Example:</p>
+<pre><code>POST <span class="hljs-meta-keyword">/api/</span>v1/road_trip?origin=denver,co<span class="hljs-variable">&amp;destination</span>=pueblo,co<span class="hljs-variable">&amp;api_key</span>=abc123
+</code></pre><h4 id="params">Params</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>origin</strong></td>
+<td style="text-align:center">city</td>
+</tr>
+<tr>
+<td><strong>destination</strong></td>
+<td style="text-align:center">city</td>
+</tr>
+<tr>
+<td><strong>api_key</strong></td>
+<td style="text-align:center">api_key</td>
+</tr>
+</tbody>
+</table>
